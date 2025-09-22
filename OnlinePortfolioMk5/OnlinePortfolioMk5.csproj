@@ -7,8 +7,39 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="Components\Pages\CV.Razor.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\docs\Lukas_Burton_CV.pdf" />
+    <None Include="wwwroot\images\background-code.JPG" />
+    <None Include="wwwroot\images\bottle.JPG" />
+    <None Include="wwwroot\images\BuilderRen2.png" />
+    <None Include="wwwroot\images\Builder_Render.png" />
+    <None Include="wwwroot\images\CarPortRen.png" />
+    <None Include="wwwroot\images\DawniaGates.png" />
+    <None Include="wwwroot\images\DawniaGrapple.png" />
+    <None Include="wwwroot\images\DpdRen.png" />
+    <None Include="wwwroot\images\GroundMountRen.png" />
+    <None Include="wwwroot\images\HighRiseRen.png" />
+    <None Include="wwwroot\images\necopinatus_portfolio_screen_shot.png" />
+    <None Include="wwwroot\images\OfficeRen.png" />
+    <None Include="wwwroot\images\Rms.png" />
+    <None Include="wwwroot\images\ship.JPG" />
+    <None Include="wwwroot\images\snow-slope.jpg" />
+    <None Include="wwwroot\images\Tavern1.png" />
+    <None Include="wwwroot\images\Tavern2.png" />
+    <None Include="wwwroot\images\WarehouseRen.png" />
+    <None Include="wwwroot\images\YargMenu.png" />
+    <None Include="wwwroot\images\zool_menu.png" />
+    <None Include="wwwroot\images\zool_shot.jpg" />
+    <None Include="wwwroot\images\zool_shot.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.8" PrivateAssets="all" />
+    <PackageReference Include="MudBlazor" Version="8.12.0" />
   </ItemGroup>
 
 </Project>

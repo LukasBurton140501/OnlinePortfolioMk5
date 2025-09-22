@@ -1,0 +1,80 @@
+﻿@page "/3d-models"
+@using MudBlazor
+@using Online_Portfilio_MK3.Components.Layout
+
+
+<PageTitle>3D Models</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Large" Class="mt-4">
+    <MudStack Spacing="3">
+        <MudText Typo="Typo.h4">3D Models</MudText>
+        <MudText>
+            When creating games I make most of the assets that are needed. To do this I use different software to
+            create the assets that will be used.
+        </MudText>
+
+        <MudDivider Class="my-4" />
+        <MudPaper Class="pa-2" Style="border-radius:12px;">
+            <MudStack Spacing="1">
+                <MudText Typo="Typo.subtitle1">Interactive preview (.obj)</MudText>
+                <!-- Put your .obj under wwwroot/models and update the path below -->
+                <ObjViewport Src="models\Scene test ex.obj"
+                             HeightPx="520"
+                             Background="#0f0f12"
+                             AutoRotate="true" />
+            </MudStack>
+        </MudPaper>
+
+        <MudDivider Class="my-4" />
+        <MudDivider Class="my-2" />
+
+        <MudText Typo="Typo.h5">Blender</MudText>
+        <MudText>
+            Blender is the program i have been using during my time at Evo Energy, where i created a diverce range of models for differnet clients.
+            I have learned lots of new skills and techniques in blender during my time at Evo espessily how to model in a profetional enviroment
+            for specified requests from clients. 
+        </MudText>
+        <MudText Typo="Typo.h5">Autodesk Maya</MudText>
+        <MudText>
+            When creating 3D models I use Autodesk Maya as I have the most experience with the software and prefer how
+            it functions compared to 3DS Max. I think Maya is incredible; my main issue is its tendency to crash when
+            creating and editing UV shells.
+        </MudText>
+
+        <MudText Typo="Typo.h5" Class="mt-4">3DS Max</MudText>
+        <MudText>
+            I have learned how to use the basics of 3DS Max, however I have more experience in Maya and Blender, so I rarely use Max.
+        </MudText>
+
+        <MudText Typo="Typo.h5" Class="mt-4">Photoshop</MudText>
+        <MudText>
+            I use Photoshop to create textures applied to my models. This stage can be tricky due to hidden polygons
+            or the modelling software not playing nicely with Photoshop.
+        </MudText>
+
+        <MudDivider Class="my-4" />
+
+        <!-- Gallery -->
+        <MudGrid Spacing="3">
+            <MudItem xs="12" md="6">
+                <MudCard Class="gallery-card">
+                    <MudCardMedia Image="images/ship.JPG" Height="280" />
+                    <MudCardContent>
+                        <MudText Typo="Typo.subtitle2">Ship</MudText>
+                        <MudText Typo="Typo.caption">Modelled in Maya</MudText>
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+
+            <MudItem xs="12" md="6">
+                <MudCard Class="gallery-card">
+                    <MudCardMedia Image="images/bottle.JPG" Height="280" />
+                    <MudCardContent>
+                        <MudText Typo="Typo.subtitle2">Bottle</MudText>
+                        <MudText Typo="Typo.caption">Modelled in Maya</MudText>
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+        </MudGrid>
+    </MudStack>
+</MudContainer>

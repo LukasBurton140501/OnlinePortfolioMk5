@@ -1,0 +1,67 @@
+﻿@page "/competencies"
+@using MudBlazor
+
+<PageTitle>Competencies</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Large" Class="mt-4">
+    <MudStack Spacing="3">
+        <MudText Typo="Typo.h4">Competencies</MudText>
+        <MudText>
+            To create a game, software is needed to write code and build game functions and environments.
+            Below are the tools and technologies I use. Experience is rated out of five.
+        </MudText>
+
+        <MudPaper Elevation="0">
+            <MudTable Items="@skills" Dense="true" Hover="true" Bordered="true" Striped="true">
+                <HeaderContent>
+                    <MudTh style="width: 180px;">Skill</MudTh>
+                    <MudTh style="width: 160px;">Experience</MudTh>
+                    <MudTh>Details</MudTh>
+                </HeaderContent>
+
+                <RowTemplate>
+                    <MudTd DataLabel="Skill">
+                        <MudChipSet T="string">
+                        <MudChip Color="Color.Primary" Variant="Variant.Outlined" Label="true">@context.Name</MudChip>
+                        </MudChipSet>
+                    </MudTd>
+
+                    <MudTd DataLabel="Experience">
+                        <div class="flex items-center gap-2">
+                            <MudProgressLinear Value="@(context.Rating * 20)"
+                                               Max="100"
+                                               Rounded="true"
+                                               Class="min-w-[120px]" />
+                            <MudText Typo="Typo.caption">@context.Rating/5</MudText>
+                        </div>
+                    </MudTd>
+
+                    <MudTd DataLabel="Details">
+                        <MudText>@context.Description</MudText>
+                    </MudTd>
+                </RowTemplate>
+            </MudTable>
+        </MudPaper>
+    </MudStack>
+</MudContainer>
+
+@code {
+    private record Skill(string Name, int Rating, string Description);
+
+    // Ratings out of 5
+    private readonly List<Skill> skills =
+    [
+        new("HTML", 3,
+            "Learning at university alongside CSS; used to build this portfolio."),
+        new("CSS", 2,
+            "Studying alongside HTML; continuing to improve layout and styling skills."),
+        new("Unreal Engine", 4,
+            "Used extensively through college and university. Contributed to 'The Adventures of Yarg' in a team of four."),
+        new("Unity", 4,
+            "Used for multiple projects including Necopinatus and a marching-cubes terrain tool built for my final year project."),
+        new("Orbis (PS4)", 2,
+            "Built a model renderer to display models on PS4."),
+        new("Vulkan", 3,
+            "Worked with a team to port Zool from DX11 to Vulkan for potential Nintendo Switch use.")
+    ];
+}

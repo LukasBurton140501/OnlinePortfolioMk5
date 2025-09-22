@@ -1,0 +1,131 @@
+﻿@page "/contact"
+@using MudBlazor
+@using System.ComponentModel.DataAnnotations
+@using Microsoft.AspNetCore.Components.Forms
+@inject ISnackbar Snackbar
+
+<PageTitle>Contact</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Medium" Class="mt-4">
+    <MudGrid Spacing="3">
+        <!-- Left: form -->
+        <MudItem xs="12" md="8">
+            <MudPaper Class="p-4">
+                <MudText Typo="Typo.h5" Class="mb-2">Contact me</MudText>
+
+                <EditForm Model="@_model" OnValidSubmit="@HandleValidSubmit">
+                    <DataAnnotationsValidator />
+                    <ValidationSummary />
+
+                    <MudStack Spacing="2">
+                        <MudTextField @bind-Value="_model.Name"
+                                      For="@(() => _model.Name)"
+                                      Label="Name"
+                                      Placeholder="Please add your name"
+                                      Required="true" />
+
+                        <MudTextField @bind-Value="_model.Email"
+                                      For="@(() => _model.Email)"
+                                      Label="Email"
+                                      Placeholder="Email address"
+                                      InputType="InputType.Email"
+                                      Required="true" />
+
+                        <MudTextField @bind-Value="_model.Telephone"
+                                      For="@(() => _model.Telephone)"
+                                      Label="Telephone"
+                                      Placeholder="Telephone number"
+                                      InputType="InputType.Telephone" />
+
+                        <MudTextField @bind-Value="_model.Message"
+                                      For="@(() => _model.Message)"
+                                      Label="Message"
+                                      Placeholder="Your message"
+                                      Lines="6"
+                                      HelperText="Be as detailed as you like."
+                                      Required="true" />
+
+                        <MudStack Direction="Row" Justify="Justify.FlexStart" Spacing="2">
+                            <MudButton Type="Submit" Color="Color.Primary" Variant="Variant.Filled" Disabled="@_submitting">
+                                @if (_submitting)
+                                {
+                                    <!-- Use enum size or set Diameter for exact px -->
+                                    <MudProgressCircular Size="Size.Small" Indeterminate="true" Class="mr-2" />
+                                    <!-- Or: <MudProgressCircular Diameter="16" Indeterminate="true" Class="mr-2" /> -->
+                                }
+                                Send
+                            </MudButton>
+                            <MudButton OnClick="@Reset" Variant="Variant.Outlined">Clear</MudButton>
+                        </MudStack>
+                    </MudStack>
+                </EditForm>
+            </MudPaper>
+        </MudItem>
+
+        <!-- Right: details + image -->
+        <MudItem xs="12" md="4">
+            <MudStack Spacing="2">
+                <MudCard>
+                    <MudCardContent>
+                        <MudText Typo="Typo.h6">Contact Details</MudText>
+                        <MudStack Spacing="1">
+                            <MudStack Direction="Row" AlignItems="AlignItems.Center" Spacing="1">
+                                <MudIcon Icon="@Icons.Material.Filled.Email" />
+                                <MudLink Href="mailto:lukasburton.1401@gmail.com">lukasburton.1401@gmail.com</MudLink>
+                            </MudStack>
+                            <MudStack Direction="Row" AlignItems="AlignItems.Center" Spacing="1">
+                                <MudIcon Icon="@Icons.Material.Filled.Phone" />
+                                <MudLink Href="tel:+447889274109">07889 274109</MudLink>
+                            </MudStack>
+                        </MudStack>
+                    </MudCardContent>
+                </MudCard>
+
+                <MudCard>
+                    <!-- Height is a string with units -->
+                    <MudCardMedia Class="contact-image" Image="images/dishFive.jpg" Height="180" />
+                </MudCard>
+
+                <MudText Typo="Typo.caption">&copy; 600 BC</MudText>
+            </MudStack>
+        </MudItem>
+    </MudGrid>
+</MudContainer>
+
+@code {
+    private bool _submitting;
+    private ContactModel _model = new();
+
+    private async Task HandleValidSubmit()
+    {
+        _submitting = true;
+        try
+        {
+            // TODO: send to an API/email service if/when you add one.
+            await Task.Delay(400);
+            Snackbar.Add("Thanks! Your message has been sent.", Severity.Success);
+            _model = new(); // reset form
+        }
+        finally
+        {
+            _submitting = false;
+        }
+    }
+
+    private void Reset() => _model = new();
+
+    public class ContactModel
+    {
+        [Required, StringLength(80)]
+        public string? Name { get; set; }
+
+        [Required, EmailAddress, StringLength(120)]
+        public string? Email { get; set; }
+
+        [Phone, StringLength(32)]
+        public string? Telephone { get; set; }
+
+        [Required, StringLength(4000, MinimumLength = 5)]
+        public string? Message { get; set; }
+    }
+}

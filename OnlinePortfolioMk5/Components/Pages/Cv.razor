@@ -1,0 +1,51 @@
+﻿@page "/cv"
+@using MudBlazor
+
+<PageTitle>CV</PageTitle>
+
+@* Update this path if you rename the file *@
+@code {
+
+    private const string CvPath = "docs/Lukas_Burton_CV.pdf";
+}
+
+<MudContainer MaxWidth="MaxWidth.Large" Class=" cv-root">
+    <MudStack Spacing="3" Class="cv-body">
+        <MudStack Direction="Row" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween">
+            <MudText Typo="Typo.h4">Curriculum Vitae</MudText>
+
+            <MudStack Direction="Row" Spacing="1">
+                <!-- Open in new tab -->
+                <MudButton StartIcon="@Icons.Material.Filled.OpenInNew" Href="@CvPath" Target="_blank" Variant="Variant.Outlined">
+                    Open in new tab
+                </MudButton>
+
+                <!-- Direct download (use a plain <a> to get the download attribute) -->
+                <a href="@CvPath" download class="mud-button-root mud-button mud-button-filled mud-button-filled-primary">
+                    <span class="mud-button-label">
+                        <span class="mud-icon-root mud-svg-icon">@((MarkupString)Icons.Material.Filled.PictureAsPdf)</span>
+                        <span class="mud-button-label">Download PDF</span>
+                    </span>
+                </a>
+            </MudStack>
+        </MudStack>
+
+        
+
+        <!-- Inline PDF viewer -->
+        <MudPaper Class="pdf-frame" Style="height:65vh; border:1px solid rgba(0,0,0,.08); border-radius:8px; overflow:hidden;">
+            <object data="@($"{CvPath}#view=FitH")"
+                    type="application/pdf"
+                    style="width:100%; height:100%; border:0; display:block;">
+                <p>
+                    Your browser can’t display the PDF here.
+                    <MudLink Href="@CvPath" Target="_blank">Open it in a new tab</MudLink>
+                    or <a href="@CvPath" download>download it</a>.
+                </p>
+            </object>
+        </MudPaper>
+        <MudAlert Severity="Severity.Info" Variant="Variant.Text" Dense="true">
+            If the viewer below doesn’t load on your device, use “Open in new tab” or “Download PDF”.
+        </MudAlert>
+    </MudStack>
+</MudContainer>

@@ -1,0 +1,47 @@
+﻿@page "/qualifications"
+@using MudBlazor
+
+<PageTitle>Qualifications</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Large" Class="mt-4">
+    <MudStack Spacing="2">
+        <MudText Typo="Typo.h4">Qualifications</MudText>
+
+        <MudPaper Elevation="0">
+            <MudTable Items="@rows" Dense="true" Hover="true" Bordered="true" Striped="true">
+                <HeaderContent>
+                    <MudTh>Qualification</MudTh>
+                    <MudTh>Subject</MudTh>
+                    <MudTh>Grade</MudTh>
+                    <MudTh>Date</MudTh>
+                </HeaderContent>
+                <RowTemplate>
+                    <MudTd DataLabel="Qualification">@context.Qualification</MudTd>
+                    <MudTd DataLabel="Subject">@context.Subject</MudTd>
+                    <MudTd DataLabel="Grade">@context.Grade</MudTd>
+                    <MudTd DataLabel="Date">@context.Date</MudTd>
+                </RowTemplate>
+            </MudTable>
+        </MudPaper>
+
+        <MudAlert Severity="Severity.Info" Variant="Variant.Outlined" Dense="true">
+            In 2017, GCSE results for Maths and English were shown as numbers while other subjects still used letters.
+        </MudAlert>
+    </MudStack>
+</MudContainer>
+
+@code {
+    private record QualificationRow(string Qualification, string Subject, string Grade, string Date);
+
+    private readonly List<QualificationRow> rows =
+    [
+        new("Uni final Grade", "All moduals", "Second honours second divition", "June 2022"),
+    new("Uni Third year", "Advanced Games console programming", "Second", "August 2020"),
+    new("Uni Third year", "Final year project", "High pass", "August 2020"),
+    new("Uni Third year", "Programming things", "Second", "August 2020"),
+    new("BTEC", "Games Tech", "M,M,P", "August 2019"),
+    new("GCSE", "English", "5", "August 2017"),
+    new("GCSE", "Maths", "6", "August 2017"),
+    new("GCSE", "Other subjects", "A-C", "August 2017"),
+    ];
+}

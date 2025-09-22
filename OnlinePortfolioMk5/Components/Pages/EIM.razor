@@ -1,0 +1,54 @@
+﻿@page "/projects/evoenergy-eim"
+@using MudBlazor
+
+<PageTitle>EvoEnergy EIM</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Medium" Class="mt-6">
+    <MudStack Spacing="2">
+        <MudButton Variant="Variant.Text" Href="/projects">← Back to Projects</MudButton>
+        <MudText Typo="Typo.h4">EvoEnergy EIM</MudText>
+        <MudText Class="highlight">
+          During my time at EvoEnergy i worked on a Data Management system that incorperated a metering system to collect the data, a set of databases to store the data and a 
+        </MudText>
+        <MudText Class="highlight">
+            My role involved both front-end and back-end development, ensuring that the user interface was intuitive while also handling complex data processing tasks. This project provided me with valuable experience in full-stack web development and working in a professional environment.
+        </MudText>
+        <MudText Class="highlight">
+            I personally worked on a screen solution what allowed users to easily create their own content for digital displays. this allowd the user to display live energy generation from their solar panels in a configuration they desired.
+        </MudText>
+        <MudText Class="highlight">
+            The project was built using Blazor and C#, which allowed for a seamless integration with existing systems. I also worked closely with the design team to ensure that the user interface was both functional and visually appealing.
+        </MudText>
+        <MudText Class="highlight">
+            The screen soution uses multiple dynamic components that can house various types of content, such as images, text, and live data visualisations. these components can be resized and positioned as the user sees fit. The layout is then saved onto a rasberry pi board allowing the content to be rendered on digital displays.
+        </MudText>
+        <MudImage Style="width:75%;" Src="images\Builder_Render.png"/>
+        <MudText Class="highlight">
+            in the page above there are images of scenes what I created during my time at evo many of these were client licensed and made for commertial sale i have displayed the renders below without their defining features as to hide the clients identities
+        </MudText>
+        <MudGrid GutterSize="2">
+            <MudItem xs="12" sm="6" md="3" lg="3">
+                <MudImage Src="images/CarPortRen.png" Alt="Car port render" Class="w-100 rounded" />
+            </MudItem>
+            <MudItem xs="12" sm="6" md="3" lg="3">
+                <MudImage Src="images/GroundMountRen.png" Alt="Ground mount render" Class="w-100 rounded" />
+            </MudItem>
+            <MudItem xs="12" sm="6" md="3" lg="3">
+                <MudImage Src="images/HighRiseRen.png" Alt="High rise render" Class="w-100 rounded" />
+            </MudItem>
+            <MudItem xs="12" sm="6" md="3" lg="3">
+                <MudImage Src="images/OfficeRen.png" Alt="Office render" Class="w-100 rounded" />
+            </MudItem>
+            <MudItem xs="12" sm="6" md="3" lg="3">
+                <MudImage Src="images/WarehouseRen.png" Alt="Warehouse render" Class="w-100 rounded" />
+            </MudItem>
+            <MudItem xs="12" sm="6" md="3" lg="3">
+                <MudImage Src="images/DpdRen.png" Alt="DPD render" Class="w-100 rounded" />
+            </MudItem>
+        </MudGrid>
+        <MudText Class="highlight">
+            in this project, data is collected from various sites using the metering system created by cooperating with the designe team. this data is collected by teltonika metering boxes that use modbus tcp/ip and is then processed and stored in a database for later use in the program
+        </MudText>
+        <MudImage Style="width:75%;" Src="images\Rms.png" />
+    </MudStack>
+</MudContainer>

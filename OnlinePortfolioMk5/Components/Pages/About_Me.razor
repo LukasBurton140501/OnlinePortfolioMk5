@@ -1,0 +1,66 @@
+﻿@page "/about"
+@using MudBlazor
+
+<PageTitle>About Me</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Large" Class="mt-4">
+    <MudGrid Spacing="3">
+        <!-- Main text -->
+        <MudItem xs="12" md="8">
+            <MudStack Spacing="2">
+                <MudText Typo="Typo.h4">About me</MudText>
+
+                <MudPaper Elevation="0" Class="p-3">
+                    <MudText Class="highlight">
+                        during my spare time I participate in various sports one of which is activly participating in archery and i am a member of a local archery club. I have been performing archery for eight years and still enjoying it.
+                    </MudText>
+                    <MudText Class="highlight">
+                        during this time I have won the junior national championship three years in a row and I have recently completed a level one coaching course which allows me to teach others the joy and technique of archery.
+                    </MudText>
+
+                    <!-- Video -->
+                    <div class="mt-3">
+                        <video src="media/Lukas-archer-shot.mp4" width="560" height="314" controls></video>
+                    </div>
+
+                    <MudText Class="highlight">
+                        I enjoy playing various games and deciphering different systems which I find interesting;
+                    </MudText>
+                    <MudText Class="highlight">
+                        I also enjoy recreating these systems in the unreal engine to find ways to improve and destroy the mechanic while testing its limits.
+                    </MudText>
+                    <MudText Class="highlight">
+                        I enjoy creating various partical systems in Unreal and Unity
+                    </MudText>
+                    <MudText Class="highlight">
+                        Also when I have had the opportuity I enjoy skiing where I have travelled to various destinations with my family.
+                    </MudText>
+                </MudPaper>
+            </MudStack>
+        </MudItem>
+
+        <!-- Sidebar: contact -->
+        <MudItem xs="12" md="4">
+            <MudCard>
+                <MudCardContent>
+                    <MudText Typo="Typo.h6">Contact Details</MudText>
+
+                    <MudStack Spacing="1">
+                        <MudStack Direction="Row" AlignItems="AlignItems.Center" Spacing="1">
+                            <MudIcon Icon="@Icons.Material.Filled.Email" />
+                            <MudLink Href="mailto:lukasburton.1401@gmail.com">lukasburton.1401@gmail.com</MudLink>
+                        </MudStack>
+                        <MudStack Direction="Row" AlignItems="AlignItems.Center" Spacing="1">
+                            <MudIcon Icon="@Icons.Material.Filled.Phone" />
+                            <MudLink Href="tel:+447889274109">07889 274109</MudLink>
+                        </MudStack>
+                    </MudStack>
+                </MudCardContent>
+            </MudCard>
+        </MudItem>
+    </MudGrid>
+
+    <MudDivider Class="my-4" />
+
+    <MudText Typo="Typo.caption">&copy; 2020</MudText>
+</MudContainer>

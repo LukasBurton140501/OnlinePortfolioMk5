@@ -1,0 +1,50 @@
+/* NavMenu.razor.css — styles for MudBlazor nav inside the drawer */
+
+::deep .mud-navmenu {
+    padding: 8px 10px;
+    margin: 0;
+    list-style: none;
+}
+
+::deep .mud-nav-link {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 12px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    text-decoration: none;
+}
+
+    /* icon spacing inside each link */
+    ::deep .mud-nav-link .mud-icon-root {
+        margin-right: 10px;
+    }
+
+    /* hover + active states */
+    ::deep .mud-nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.08);
+    }
+
+    ::deep .mud-nav-link.active {
+        background-color: rgba(255, 255, 255, 0.24);
+        color: #fff;
+    }
+
+/* Safety: remove bullets/extra padding on nested lists if any */
+::deep .mud-navmenu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+/* shrink or grow icons to test */
+::deep .navmenu-debug .mud-icon-root {
+    font-size: 20px; /* try 16 / 20 / 24 / 28 to compare */
+}
+
+/* make link rows compact while testing */
+::deep .navmenu-debug .mud-nav-link {
+    height: 40px; /* try 36–48 */
+    border-radius: 8px;
+}

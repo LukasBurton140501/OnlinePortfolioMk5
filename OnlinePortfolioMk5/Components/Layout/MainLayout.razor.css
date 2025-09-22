@@ -1,0 +1,71 @@
+/* Top App Bar */
+::deep .mud-appbar {
+    background-color: #f7f7f7;
+    color: #222;
+    border-bottom: 1px solid #d6d5d5;
+    /* No sticky here; we set Fixed="true" on the component */
+}
+
+    ::deep .mud-appbar .mud-link {
+        white-space: nowrap;
+        text-decoration: none;
+        margin-left: 1.5rem;
+    }
+
+        ::deep .mud-appbar .mud-link:hover {
+            text-decoration: underline;
+        }
+
+/* Left Drawer (sidebar) */
+::deep .mud-drawer {
+    /* Keep width controlled by mud-width-240 + MiniVariantWidth (no inline width!) */
+    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+    color: rgba(255, 255, 255, 0.9);
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+    ::deep .mud-drawer .mud-drawer-header {
+        padding: 12px 10px;
+    }
+
+/* Main content padding (single source of truth) */
+::deep .mud-main-content {
+    padding: 1rem;
+}
+
+@media (min-width: 641px) {
+    ::deep .mud-main-content {
+        padding-left: 2rem !important;
+        padding-right: 1.5rem !important;
+    }
+}
+
+/* Drawer nav links */
+::deep .mud-nav-link {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+    ::deep .mud-nav-link.active {
+        background-color: rgba(255, 255, 255, 0.24);
+        color: #fff;
+    }
+
+/* Error UI (unchanged) */
+#blazor-error-ui {
+    background: lightyellow;
+    bottom: 0;
+    box-shadow: 0 -1px 2px rgba(0,0,0,0.2);
+    display: none;
+    left: 0;
+    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+    #blazor-error-ui .dismiss {
+        cursor: pointer;
+        position: absolute;
+        right: 0.75rem;
+        top: 0.5rem;
+    }

@@ -1,0 +1,91 @@
+﻿@page "/projects"
+@using MudBlazor
+
+<PageTitle>Projects</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Large" Class="mt-4">
+    <MudStack Spacing="3">
+        <MudText Typo="Typo.h4">Projects</MudText>
+
+        <!-- EvoEnergy EIM -->
+        <MudCard>
+            <MudCardHeader>
+                <MudText Typo="Typo.h6">EvoEnergy EIM Project</MudText>
+                <MudChipSet T="string" Class="mt-1">
+                    <MudChip Color="Color.Primary" Variant="Variant.Outlined" Label="true">Blazor</MudChip>
+                    <MudChip Color="Color.Primary" Variant="Variant.Outlined" Label="true">C#</MudChip>
+                    <MudChip Color="Color.Secondary" Variant="Variant.Outlined" Label="true">Web development</MudChip>
+                </MudChipSet>
+            </MudCardHeader>
+            <MudCardContent>
+                 <MudText Class="highlight">
+                    During my time at EvoEnergy, I worked on a web application to help manage and visualise energy data for clients. The application was built using Blazor and C#, allowing for a seamless integration with existing systems.
+                </MudText>
+               
+            </MudCardContent>
+            <MudCardActions>
+                <MudButton Color="Color.Primary" Variant="Variant.Outlined" Href="/projects/evoenergy-eim">
+                    Read more
+                </MudButton>
+            </MudCardActions>
+            <MudImage Style="width:75%;" Src="images\BuilderRen2.png" />
+        </MudCard>
+
+        <!-- Necopinatus -->
+        <MudCard>
+            <MudCardHeader>
+                <MudText Typo="Typo.h6">Necopinatus</MudText>
+                <MudChipSet T="string" Class="mt-1">
+                    <MudChip Color="Color.Primary" Variant="Variant.Outlined" Label="true">Unity</MudChip>
+                    <MudChip Color="Color.Primary" Variant="Variant.Outlined" Label="true">C#</MudChip>
+                    <MudChip Color="Color.Secondary" Variant="Variant.Outlined" Label="true">Team project</MudChip>
+                </MudChipSet>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudText Class="highlight">
+                    Necopinatus is a Unity-based game created in my second year of university alongside a group of five other students from different courses. Together we created this product and won a competition between the other students.
+                </MudText>
+
+                <!-- Video -->
+                <div class="media-wrap mt-2">
+                    <video src="media/Necopinatus_Trailer.mp4" controls></video>
+                </div>
+            </MudCardContent>
+            <MudCardActions>
+                <MudButton Color="Color.Primary" Variant="Variant.Outlined" Href="/projects/necopinatus">
+                    Read more
+                </MudButton>
+            </MudCardActions>
+        </MudCard>
+
+        <!-- Zool -->
+        <MudCard>
+            <MudCardHeader>
+                <MudText Typo="Typo.h6">Zool</MudText>
+                <MudChipSet T="string" Class="mt-1">
+                    <MudChip Color="Color.Primary" Variant="Variant.Outlined" Label="true">Vulkan</MudChip>
+                    <MudChip Color="Color.Primary" Variant="Variant.Outlined" Label="true">DX11 → Vulkan</MudChip>
+                    <MudChip Color="Color.Secondary" Variant="Variant.Outlined" Label="true">Porting</MudChip>
+                </MudChipSet>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudText Class="highlight">
+                    In my final year I worked with fellow students to port the game <em>Zool</em> from Windows DX11 to Vulkan so it could be used on the Nintendo Switch when a development kit becomes available.
+                </MudText>
+                <MudText Class="highlight">
+                    This project was licensed to our group by Sumo Digital, who wanted both an Orbis port and a Vulkan port of their license <em>Zool</em>. I enjoyed working within a team immensely.
+                </MudText>
+
+                <MudPaper Elevation="0" Class="mt-2">
+                    <MudImage Src="images/zool_menu.png" Alt="Zool menu" Class="gallery-img" />
+                </MudPaper>
+            </MudCardContent>
+            <MudCardActions>
+                <MudButton Color="Color.Primary" Variant="Variant.Outlined" Href="/projects/zool">
+                    Read more
+                </MudButton>
+            </MudCardActions>
+        </MudCard>
+
+    </MudStack>
+</MudContainer>

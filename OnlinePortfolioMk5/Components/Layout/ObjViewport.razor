@@ -1,0 +1,61 @@
+﻿@using Microsoft.JSInterop
+@implements IAsyncDisposable
+
+
+<div @ref="_host" style="@($"width:100%;height:{HeightPx}px;")"></div>
+
+@code {
+    [Inject] IJSRuntime JS { get; set; } = default!;
+
+    private ElementReference _host;
+    private IJSObjectReference? _module;
+    private IJSObjectReference? _viewer;
+
+    [Parameter] public string? Src { get; set; }
+    [Parameter] public int HeightPx { get; set; } = 480;
+    [Parameter] public string Background { get; set; } = "#101012";
+    [Parameter] public bool AutoRotate { get; set; } = true;
+    [Parameter] public double AutoRotateSpeed { get; set; } = 1.2;
+    [Parameter] public double? CameraDistance { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender) return;
+
+        _module = await JS.InvokeAsync<IJSObjectReference>("import", "/js/objViewer.module.js");
+
+        _viewer = await _module.InvokeAsync<IJSObjectReference>(
+            "create",
+            _host,
+            new
+            {
+                src = Src,
+                background = Background,
+                autoRotate = AutoRotate,
+                autoRotateSpeed = AutoRotateSpeed,
+                cameraDistance = CameraDistance
+            }
+        );
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (_viewer is null) return;
+
+        await _viewer.InvokeVoidAsync("setBackground", Background);
+        await _viewer.InvokeVoidAsync("setAutoRotate", AutoRotate, AutoRotateSpeed);
+
+        if (!string.IsNullOrWhiteSpace(Src))
+            await _viewer.InvokeVoidAsync("setSrc", Src);
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        try
+        {
+            if (_viewer is not null) await _viewer.InvokeVoidAsync("dispose");
+            if (_module is not null) await _module.DisposeAsync();
+        }
+        catch {  }
+    }
+}
