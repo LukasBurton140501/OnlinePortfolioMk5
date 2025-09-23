@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="Components\Pages\CV.Razor.css" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="wwwroot\docs\Lukas_Burton_CV.pdf" />
     <None Include="wwwroot\images\background-code.JPG" />
     <None Include="wwwroot\images\bottle.JPG" />
@@ -38,7 +34,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.8" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.8" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.20" PrivateAssets="all" />
     <PackageReference Include="MudBlazor" Version="8.12.0" />
   </ItemGroup>
 

@@ -26,8 +26,7 @@ builder.Services.AddMudServices(options =>
 });
 
 // Your app services (move the PageLinks class into this project & namespace)
-builder.Services.AddScoped<PageLinks>(); // adjust the type if your class name/namespace differs
-
+builder.Services.AddScoped<Online_Portfilio_MK5.Components.Layout.PageLinks>();
 // -------------------------------------------------------------------
 
 await builder.Build().RunAsync();
