@@ -1,0 +1,22 @@
+﻿/* CV page — Option A: fixed portion of viewport height */
+
+/* Make the PDF area a fixed portion of the screen (tweak 85vh as needed) */
+::deep .cv-viewport {
+    height: 85vh;
+}
+
+/* Frame styling */
+::deep .pdf-frame {
+    border: 1px solid rgba(0,0,0,.08);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+    /* Make the embedded viewer fill the frame */
+    ::deep .pdf-frame object,
+    ::deep .pdf-frame iframe {
+        width: 100%;
+        height: 100%;
+        display: block;
+        border: 0;
+    }
